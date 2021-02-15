@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>com.example.oauth</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>spring-oauth-hello-word</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-oauth-hello-word</name>
 	<description>OAuth2</description>

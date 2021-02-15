@@ -1,1 +1,1 @@
-# spring-oauth-hello-word
+# spring-oauth-hello-world
