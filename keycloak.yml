@@ -1,0 +1,40 @@
+version: '3.1'
+
+volumes:
+  mysql_data:
+      driver: local
+
+services:
+    mysql:
+      container_name: mysql-db
+      image: mysql:5.7
+      volumes:
+        - mysql_data:/var/lib/mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: keycloak
+        MYSQL_USER: keycloak
+        MYSQL_PASSWORD: keycloak
+      ports:
+        - 3306:3306
+      expose:
+        - 3306
+    keycloak:
+      container_name: keycloak
+      image: quay.io/keycloak/keycloak:latest
+      environment:
+        DB_VENDOR: MYSQL
+        DB_ADDR: mysql
+        DB_DATABASE: keycloak
+        DB_USER: keycloak
+        DB_PASSWORD: keycloak
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: keycloak
+      ports:
+        - 8080:8080
+      depends_on:
+        - mysql
+        
+# docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=keycloak quay.io/keycloak/keycloak:12.0.3
+# https://github.com/keycloak/keycloak-containers/tree/master/docker-compose-examples
+# https://www.keycloak.org/getting-started/getting-started-docker
