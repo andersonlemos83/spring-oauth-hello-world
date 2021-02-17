@@ -10,24 +10,25 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
-@EnableWebSecurity
-@EnableAuthorizationServer
-@EnableResourceServer
-public class SegurancaConfig extends WebSecurityConfigurerAdapter {
+//@EnableWebSecurity
+//@EnableAuthorizationServer
+//@EnableResourceServer
+//public class SegurancaConfig extends WebSecurityConfigurerAdapter {
+public class SegurancaConfig {
 
-    @Bean
-    @Override
-    protected AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManager();
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("alcamelo").password("123").roles("ADMIN");
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }
+//    @Bean
+//    @Override
+//    protected AuthenticationManager authenticationManager() throws Exception {
+//        return super.authenticationManager();
+//    }
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().withUser("alcamelo").password("123").roles("ADMIN");
+//    }
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return NoOpPasswordEncoder.getInstance();
+//    }
 }
